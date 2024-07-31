@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { SignupValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
 import { Link } from "react-router-dom";
+import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignUpForm = () => {
   const isLoading = false;
@@ -32,9 +33,9 @@ const SignUpForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof SignupValidation>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const newUser = createUserAccount(values);
+
+    console.log(newUser);
   }
 
   return (
@@ -107,15 +108,22 @@ const SignUpForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isLoading ? (<div className="flex-center gap-2">
-              <Loader/> Loading...
-            </div>):(
+            {isLoading ? (
+              <div className="flex-center gap-2">
+                <Loader /> Loading...
+              </div>
+            ) : (
               "Sign Up"
             )}
           </Button>
           <p className="text-small-regular text-light-2 text-center mt-2">
             Already have an account?
-            <Link to="/sign-in" className="text-primary-500 text-small-semibold ml-1">Log in</Link>
+            <Link
+              to="/sign-in"
+              className="text-primary-500 text-small-semibold ml-1"
+            >
+              Log in
+            </Link>
           </p>
         </form>
       </div>

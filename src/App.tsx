@@ -4,6 +4,7 @@ import SignUpForm from "./_auth/forms/SignUpForm";
 import { Home } from "./_root/pages";
 import RootLayout from "./_root/RootLayout";
 import AuthLayout from "./_auth/AuthLayout";
+import {Toaster} from "@/components/ui/toaster"
 
 import "./globals.css";
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route index element={<Home />} />
         </Route>
       </Routes>
+      <Toaster/>
     </main>
   );
 };

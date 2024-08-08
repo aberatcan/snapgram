@@ -1,4 +1,4 @@
-import {z} from 'zod'
+import { z } from "zod";
 
 export const SignupValidation = z.object({
   name: z.string().min(2, { message: "Too short" }),
@@ -14,4 +14,11 @@ export const SignInValidation = z.object({
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters." }),
+});
+
+export const PostValidation = z.object({
+  caption: z.string(),
+  file: z.custom<File[]>(),
+  location: z.string().min(2).max(100),
+  tags: z.string(),
 });

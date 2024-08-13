@@ -9,12 +9,12 @@ import { Models } from "appwrite";
 import { useEffect, useState } from "react";
 
 type PostStatsProps = {
-  post: Models.Document;
+  post?: Models.Document;
   userId: string;
 };
 
 const PostStats = ({ post, userId }: PostStatsProps) => {
-  const likesList = post.likes.map((user: Models.Document) => user.$id);
+  const likesList = post?.likes.map((user: Models.Document) => user.$id);
 
   const [likes, setLikes] = useState(likesList);
   const [isSaved, setIsSaved] = useState(false);
@@ -26,7 +26,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
   const { data: currentUser } = useGetCurrentUser();
 
   const savedPostRecord = currentUser?.save.find(
-    (record: Models.Document) => record.post.$id === post.$id
+    (record: Models.Document) => record.post?.$id === post?.$id
   );
 
   useEffect(() => {
@@ -37,37 +37,39 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
     // Prevent the click event from bubbling up to the parent element
     e.stopPropagation();
 
-    let newLikes = [...likes]
+    let newLikes = [...likes];
 
     const hasLiked = newLikes.includes(userId);
-  
+
     // If the user has already liked the post, remove the like
-    if(hasLiked){
-        newLikes = newLikes.filter((id) => id !== userId)   
+    if (hasLiked) {
+      newLikes = newLikes.filter((id) => id !== userId);
     }
 
     // If the user has not liked the post, add the like
     else {
-        newLikes.push(userId);
+      newLikes.push(userId);
     }
     // Update the state with the new likes array
     setLikes(newLikes);
 
     // Call the likePost mutation
-    likePost({ postId: post.$id, likesArray: newLikes });
+    likePost({ postId: post?.$id || "", likesArray: newLikes });
   };
 
-  const handleSavePost = ( e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+  const handleSavePost = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
     // Prevent the click event from bubbling up to the parent element
     e.stopPropagation();
 
     // If the post is already saved, delete the saved post
-    if(savedPostRecord){
-        setIsSaved(false)
-        deleteSavedPost({ savedRecordId: savedPostRecord.$id });
+    if (savedPostRecord) {
+      setIsSaved(false);
+      deleteSavedPost({ savedRecordId: savedPostRecord.$id });
     } else {
-        savePost({ postId: post.$id, userId });
-        setIsSaved(true);
+      savePost({ postId: post?.$id || "", userId });
+      setIsSaved(true);
     }
   };
 

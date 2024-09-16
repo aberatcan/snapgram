@@ -36,4 +36,4 @@ npm run dev
 4. Open the app in your browser at `http://localhost:5173`
 
 ## Live Demo
-Check out the live version here: https://snapgram-pied-tau.vercel.app/sign-in
+Check out the live version here: https://snapgram-pied-tau.vercel.app

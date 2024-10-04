@@ -9,6 +9,13 @@ type GridPostListProps = {
   showStats?: boolean;
 };
 
+/**
+ * This is the GridPostList component.
+ * 
+ * - Used to render the grid post list.
+ * - Used to render the grid post list items.
+ */
+  
 const GridPostList = ({ posts, showUser=true, showStats=true }: GridPostListProps) => {
   const { user } = useUserContext();
 

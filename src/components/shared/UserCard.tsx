@@ -7,6 +7,12 @@ type UserCardProps = {
   user: Models.Document;
 };
 
+/**
+ * This is the UserCard component.
+ * 
+ * - Used to display short information about a user.
+ */
+
 const UserCard = ({ user }: UserCardProps) => {
   return (
     <Link to={`/profile/${user.$id}`} className="user-card">

@@ -24,6 +24,15 @@ type PostFormProps = {
     post?: Models.Document;
     action: "Create" | "Update";
 }
+
+/**
+ * This is the PostForm component.
+ * 
+ * - Used to render the post form.
+ * - Used to create a new post.
+ * - Used to update a post.
+ */
+
 const PostForm = ({ post, action }: PostFormProps) => {
 
     const {mutateAsync: createPost, isPending: isLoadingCreate} = useCreatePost();

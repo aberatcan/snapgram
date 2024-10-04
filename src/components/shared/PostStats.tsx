@@ -13,6 +13,12 @@ type PostStatsProps = {
   userId: string;
 };
 
+/**
+ * This is the PostStats component.
+ * 
+ * - Used to display the post stats.
+ */
+
 const PostStats = ({ post, userId }: PostStatsProps) => {
   const likesList = post?.likes.map((user: Models.Document) => user.$id);
 

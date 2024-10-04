@@ -8,6 +8,13 @@ type PostCardProps = {
   post: Models.Document;
 };
 
+/**
+ * This is the PostCard component.
+ * 
+ * - Used to render the post card.
+ * - Used to render the post card details.
+ */
+
 const PostCard = ({ post }: PostCardProps) => {
   const { user } = useUserContext();
   if (!post.creator) return;

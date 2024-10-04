@@ -6,6 +6,14 @@ type FileUploaderProps = {
   fieldChange: (FILES: File[]) => void;
   mediaUrl: string;
 };
+
+/**
+ * This is the FileUploader component.
+ * 
+ * - Used to render the file uploader.
+ * - Used to upload a file.
+ */
+
 const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const [file, setFile] = useState<File[]>([]);
   const [fileUrl, setFileUrl] = useState(mediaUrl);

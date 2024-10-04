@@ -6,6 +6,17 @@ import { useEffect } from "react";
 import { sidebarLinks } from "@/constants";
 import { INavLink } from "@/types";
 
+/**
+ * This is the LeftSideBar component.
+ * 
+ * - Used to render the left sidebar.
+ * - Used to render the user profile.
+ * - Used to render the sign out button.
+ * - Used to render the sidebar links.
+ * 
+ * Left sidebar is visible only on large screens.
+ */
+
 const LeftSideBar = () => {
   const { pathname } = useLocation();
   const { mutate: signOut, isSuccess } = useSignOutAccount();
@@ -48,9 +59,8 @@ const LeftSideBar = () => {
             return (
               <li
                 key={link.label}
-                className={`leftsidebar-link group ${
-                  isActive && "bg-primary-500"
-                }`}
+                className={`leftsidebar-link group ${isActive && "bg-primary-500"
+                  }`}
               >
                 <NavLink
                   to={link.route}
@@ -59,9 +69,8 @@ const LeftSideBar = () => {
                   <img
                     src={link.imgURL}
                     alt={link.label}
-                    className={`group-hover:invert-white ${
-                      isActive && "invert-white"
-                    }`}
+                    className={`group-hover:invert-white ${isActive && "invert-white"
+                      }`}
                   />
 
                   {link.label}

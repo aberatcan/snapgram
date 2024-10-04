@@ -3,6 +3,13 @@ import Loader from "@/components/shared/Loader";
 import { useGetPostById } from "@/lib/react-query/queriesAndMutations";
 import { useParams } from "react-router-dom";
 
+/**
+ * This is the EditPost component.
+ * 
+ * - Used to render the edit post form.
+ * - Used to edit a post.
+ */
+
 const EditPost = () => {
   const {id} = useParams()
   const { data: post, isPending: isPostLoading } = useGetPostById(id || "");

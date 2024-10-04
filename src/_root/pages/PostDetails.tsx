@@ -8,6 +8,14 @@ import React from "react";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+/**
+ * This is the PostDetails component.
+ * 
+ * - Used to render the post details.
+ * - Used to render the post stats.
+ * - Used to render the post actions.
+ */
+
 const PostDetails = () => {
   const { id } = useParams();
 

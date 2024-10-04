@@ -5,17 +5,30 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "@/context/AuthContext";
 
+/**
+ * This is the Topbar component.
+ * 
+ * - Used to render the topbar.
+ * - Used to render the sign out button.
+ * - Used to render the user profile.
+ *  
+ * Topbar is visible only on small screens.
+ */
+
 const Topbar = () => {
+
   const { mutate: signOut, isSuccess } = useSignOutAccount();
   const navigate = useNavigate();
 
   const { user } = useUserContext();
 
+  // Redirect to the sign in page if the user is successfully signed out
   useEffect(() => {
     if (isSuccess) {
       navigate(0);
     }
   }, [isSuccess]);
+  
   return (
     <section className="topbar">
       <div className="flex-between py-4 px-5">

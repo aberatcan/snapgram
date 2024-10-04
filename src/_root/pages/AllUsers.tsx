@@ -2,6 +2,12 @@ import Loader from "@/components/shared/Loader";
 import UserCard from "@/components/shared/UserCard";
 import { useGetUsers } from "@/lib/react-query/queriesAndMutations";
 
+/**
+ * This is AllUsers component.
+ * 
+ * - Used to display all users.
+ */
+
 const AllUsers = () => {
   const { data: users, isLoading } = useGetUsers();
 

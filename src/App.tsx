@@ -19,6 +19,13 @@ import { Toaster } from "@/components/ui/toaster";
 
 import "./globals.css";
 
+/**
+ * This is the main App component.
+ * It is the entry point of the application.
+ * It renders the main layout and the routes.
+ * It also renders the Toaster component.
+ */
+
 const App = () => {
   return (
     <main className="flex h-screen">

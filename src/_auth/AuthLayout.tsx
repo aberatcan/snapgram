@@ -1,6 +1,13 @@
 import { useUserContext } from "@/context/AuthContext";
 import { Outlet, Navigate } from "react-router-dom";
 
+/**
+ * This is the AuthLayout component.
+ * It is used to render the authentication layout.
+ * It renders the Outlet component to render the child routes.
+ * It also renders the Navigate component to redirect to the home page if the user is authenticated.
+ */
+
 const AuthLayout = () => {
 
   const { isAuthenticated } = useUserContext();

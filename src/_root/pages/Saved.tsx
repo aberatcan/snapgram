@@ -2,6 +2,13 @@ import Loader from "@/components/shared/Loader";
 import { useGetCurrentUser } from "@/lib/react-query/queriesAndMutations";
 import GripPostList from "@/components/shared/GridPostList";
 import { Models } from "appwrite";
+
+/**
+ * This is Saved component.
+ * 
+ * - Used to display the saved posts.
+ */
+
 const Saved = () => {
   const { data: currentUser } = useGetCurrentUser();
 

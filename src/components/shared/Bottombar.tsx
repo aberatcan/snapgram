@@ -1,5 +1,15 @@
 import { bottombarLinks } from "@/constants";
 import { Link, useLocation } from "react-router-dom";
+
+/**
+ * This is the Bottombar component.
+ * 
+ * - Used to render the bottombar.
+ * - Used to render the bottombar links.
+ * 
+ * Bottombar is visible only on small screens.
+ */
+
 const Bottombar = () => {
   const { pathname } = useLocation();
 

@@ -20,6 +20,15 @@ const INITIAL_STATE = {
   setIsAuthenticated: () => {},
   checkAuthUser: async () => false as boolean,
 };
+
+/**
+ * This is the AuthContext component.
+ * 
+ * - Used to provide the authentication context to the application.
+ * - Used to store the user information.
+ * - Used to store the authentication status.
+ */
+
 const AuthContext = createContext<IContextType>(INITIAL_STATE);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -82,5 +91,20 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default AuthProvider;
+
+/**
+ * This is the useUserContext hook.
+ * 
+ * - Used to get the user context.
+ * - Returns an object with the following values:
+ *   - user: The current user object
+ *   - setUser: Function to update the user object
+ *   - isLoading: Boolean indicating if authentication is in progress
+ *   - setIsLoading: Function to update the loading state
+ *   - isAuthenticated: Boolean indicating if the user is authenticated
+ *   - setIsAuthenticated: Function to update the authentication state
+ *   - checkAuthUser: Function to check and update the user's authentication status
+ * 
+ */
 
 export const useUserContext = () => useContext(AuthContext);

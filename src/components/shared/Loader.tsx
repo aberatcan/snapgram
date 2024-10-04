@@ -1,3 +1,8 @@
+/**
+ * This is the Loader component.
+ * 
+ * - Used to render the loader.
+ */
 
 const Loader = () => {
   return (

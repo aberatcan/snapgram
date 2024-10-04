@@ -1,5 +1,12 @@
 import PostForm from "@/components/forms/PostForm";
 
+/**
+ * This is the CreatePost component.
+ * 
+ * - Used to render the create post form.
+ * - Used to create a new post.
+ */
+
 const CreatePost = () => {
   return (
     <div className="flex flex-1">
@@ -14,7 +21,7 @@ const CreatePost = () => {
 
           <h2 className="h3-bold md:h2-bold text-left w-full"> Create Post</h2>
         </div>
-        <PostForm action="Create"/>
+        <PostForm action="Create" />
       </div>
     </div>
   );

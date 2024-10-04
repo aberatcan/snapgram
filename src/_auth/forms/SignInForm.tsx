@@ -19,6 +19,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSignInAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
 
+/**
+ * This is the SignInForm component.
+ * - Used to render the sign in form.
+ * - Used to sign in the user.
+ * - Used to redirect to the home page if the user is authenticated.
+ */
+
 const SignInForm = () => {
   const { toast } = useToast();
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
@@ -27,7 +34,7 @@ const SignInForm = () => {
   const { mutateAsync: signInAccount } =
     useSignInAccount();
 
-  // 1. Define your form.
+  // Define a form
   const form = useForm<z.infer<typeof SignInValidation>>({
     resolver: zodResolver(SignInValidation),
     defaultValues: {
@@ -36,7 +43,7 @@ const SignInForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
+  // Define a submit handler.
   async function onSubmit(values: z.infer<typeof SignInValidation>) {
 
     const session = await signInAccount({

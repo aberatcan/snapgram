@@ -22,6 +22,13 @@ import {
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
 
+/**
+ * This is the SignUpForm component.
+ * - Used to render the sign up form.
+ * - Used to sign up the user.
+ * - Used to redirect to the home page if the user is authenticated.
+ */
+
 const SignUpForm = () => {
   const { toast } = useToast();
   const { checkAuthUser } = useUserContext();
@@ -33,7 +40,7 @@ const SignUpForm = () => {
   const { mutateAsync: signInAccount } =
     useSignInAccount();
 
-  // 1. Define your form.
+  // Define a form
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
     defaultValues: {
@@ -44,7 +51,7 @@ const SignUpForm = () => {
     },
   });
 
-  // 2. Define a submit handler.
+  // Define a submit handler.
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     const newUser = await createUserAccount(values);
 
@@ -53,7 +60,7 @@ const SignUpForm = () => {
         title: "Sign up failed. Please try again.",
       });
     }
-  
+
     const session = await signInAccount({
       email: values.email,
       password: values.password,
@@ -72,7 +79,7 @@ const SignUpForm = () => {
     if (isLoggedIn) {
       form.reset();
       navigate("/");
-    }else {
+    } else {
       return toast({
         title: "Login failed. Please try again.",
       });

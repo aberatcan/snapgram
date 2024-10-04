@@ -7,6 +7,11 @@ type SearchResultsProps = {
   searchedPosts: Models.DocumentList<Models.Document> | undefined;
 }
 
+/**
+ * This is the SearchResults component.
+ * 
+ * - Used to display the search results.
+ */
 
 const SearchResults = ({isSearchFetching, searchedPosts}:SearchResultsProps) => {
 
